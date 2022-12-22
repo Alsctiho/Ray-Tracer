@@ -16,7 +16,7 @@ private:
 public:
     virtual void OnAttach() override
     {
-        image = std::make_shared<Image>("data\\Luna.jpg", ImageFormat::RGB);
+        image = std::make_shared<Image>("data\\Neko.jpg");
         //image = std::make_shared<Image>(600, 300, ImageFormat::RGB);
     }
 

@@ -22,9 +22,9 @@ LogLayer* LogLayer::s_logLayer = nullptr;
 
 namespace Alice
 {
-    Log log;
-    LogError error;
-    LogWarning warning;
+    Log log{ Message };
+    Log error{ Error };
+    Log warning{ Warning };
     Endl endl;
 }
 

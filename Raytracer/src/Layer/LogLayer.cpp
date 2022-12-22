@@ -5,7 +5,7 @@
 
 LogLayer::LogLayer() { s_logLayer = this; }
 
-void LogLayer::NewLine(LogLevel level, std::string& content)
+void LogLayer::NewLine(LogLevel level, const std::string& content)
 {
 	switch (level)
 	{
@@ -22,7 +22,7 @@ void LogLayer::NewLine(LogLevel level, std::string& content)
 	buffer.append(content.c_str());
 }
 
-void LogLayer::Append(std::string& content)
+void LogLayer::Append(const std::string& content)
 {
 	buffer.append(content.c_str());
 }

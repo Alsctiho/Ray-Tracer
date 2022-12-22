@@ -14,8 +14,8 @@ private:
 
 public:
 	LogLayer();
-	void NewLine(LogLevel level, std::string& content);
-	void Append(std::string& content);
+	void NewLine(LogLevel level, const std::string& content);
+	void Append(const std::string& content);
 	void EndLine();
 
 	void OnAttach() override;

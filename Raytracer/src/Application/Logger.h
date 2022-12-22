@@ -1,6 +1,8 @@
 #pragma once
 
+#include <vecmath.h>
 #include <string>
+#include <iostream>
 
 enum LogLevel
 {
@@ -19,32 +21,24 @@ namespace Alice
 	class Log
 	{
 	public:
+		Log(LogLevel level) : m_level(level) {}
 		Log& operator<<(std::string content);
+		Log& operator<<(int i);
+		Log& operator<<(double d);
+		Log& operator<<(vec3f v);
+		Log& operator<<(vec4f v);
 		void operator<<(Endl endl);
 		virtual ~Log() {}
 
-	protected:
-		Log& internalLog(LogLevel level ,std::string& content);
+	private:
+		LogLevel m_level;
+		Log& internalLog(const std::string& content);
 		void InternalNewLine();
 		bool newLine = true;
 	};
 
-	class LogError : public Log
-	{
-	public:
-		LogError& operator<<(std::string content);
-		void operator<<(Endl endl);
-	};
-
-	class LogWarning : public Log
-	{
-	public:
-		LogWarning& operator<<(std::string content);
-		void operator<<(Endl endl);
-	};
-
 	extern Log log;
-	extern LogError error;
-	extern LogWarning warning;
+	extern Log warning;
+	extern Log error;
 	extern Endl endl;
 }

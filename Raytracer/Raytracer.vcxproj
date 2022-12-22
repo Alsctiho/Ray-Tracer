@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)inc;$(ProjectDir)inc\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc;$(ProjectDir)inc\imgui;$(ProjectDir)src\math;$(ProjectDir)src\Application;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -152,6 +152,7 @@
     <ClInclude Include="src\Layer\Layer.h" />
     <ClInclude Include="src\Layer\LogLayer.h" />
     <ClInclude Include="src\Layer\ViewportLayer.h" />
+    <ClInclude Include="src\math\vecmath.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inc\imgui\imgui.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="src\Application\Image.cpp" />
     <ClCompile Include="src\Application\Logger.cpp" />
     <ClCompile Include="src\Layer\LogLayer.cpp" />
+    <ClCompile Include="src\math\vecmath.cpp" />
     <ClCompile Include="src\TestGui.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

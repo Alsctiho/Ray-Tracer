@@ -3,12 +3,10 @@
 
 namespace Alice
 {
-	Log& Log::operator<<(std::string content)
-	{
-		return internalLog(Message, content);
-	}
-
-	Log& Log::internalLog(LogLevel level, std::string& content)
+	/*
+	* Helper functions
+	*/
+	Log& Log::internalLog(const std::string& content)
 	{
 		LogLayer* logger = LogLayer::GetInstance();
 		if (logger)
@@ -16,7 +14,7 @@ namespace Alice
 			if (newLine)
 			{
 				newLine = false;
-				logger->NewLine(level, content);
+				logger->NewLine(m_level, content);
 			}
 			else
 			{
@@ -26,33 +24,56 @@ namespace Alice
 		return *this;
 	}
 
-	void Log::operator<<(Endl endl)
-	{
-		InternalNewLine();
-	}
-
 	void Log::InternalNewLine()
 	{
 		newLine = true;
 		LogLayer::GetInstance()->EndLine();
 	}
 
-	LogError& LogError::operator<<(std::string content)
+	Log& Log::operator<<(std::string content)
 	{
-		return dynamic_cast<LogError&>(internalLog(Warning, content));
+		return internalLog(content);
 	}
 
-	void LogError::operator<<(Endl endl)
+	Log& Log::operator<<(int i)
 	{
-		InternalNewLine();
+		return internalLog(std::to_string(i));
 	}
 
-	LogWarning& LogWarning::operator<<(std::string content)
+	Log& Log::operator<<(double d)
 	{
-		return dynamic_cast<LogWarning&>(internalLog(Warning, content));
+		return internalLog(std::to_string(d));
 	}
 
-	void LogWarning::operator<<(Endl endl)
+	Log& Log::operator<<(vec3f v)
+	{
+		std::string content;
+		content.append("[");
+		content.append(std::to_string(v[0]));
+		content.append(", ");
+		content.append(std::to_string(v[1]));
+		content.append(", ");
+		content.append(std::to_string(v[2]));
+		content.append("]");
+		return internalLog(content);
+	}
+
+	Log& Log::operator<<(vec4f v)
+	{
+		std::string content;
+		content.append("[");
+		content.append(std::to_string(v[0]));
+		content.append(", ");
+		content.append(std::to_string(v[1]));
+		content.append(", ");
+		content.append(std::to_string(v[2]));
+		content.append(", ");
+		content.append(std::to_string(v[3]));
+		content.append("]");
+		return internalLog(content);
+	}
+
+	void Log::operator<<(Endl endl)
 	{
 		InternalNewLine();
 	}

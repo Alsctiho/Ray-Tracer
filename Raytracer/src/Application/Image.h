@@ -12,7 +12,7 @@ enum class ImageFormat
 class Image
 {
 public:
-	Image(std::string path, ImageFormat format);
+	Image(std::string path);
 	Image(uint32_t width, uint32_t height, ImageFormat format, const void* data = nullptr);
 	~Image();
 

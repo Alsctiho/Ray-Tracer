@@ -21,12 +21,6 @@ static void glfw_error_callback(int error, const char* description)
 static void glfw_mouse_callback(GLFWwindow* window, int button, int action, int mods)
 {
     // TODO
-    if (action == GLFW_PRESS)
-        std::cout << button << " press" << std::endl;
-    else if(action == GLFW_RELEASE)
-        std::cout << button << " release" << std::endl;
-    else
-        std::cout << "?" << std::endl;
 }
 
 static void glfw_cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
