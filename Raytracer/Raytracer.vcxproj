@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)\inc;$(ProjectDir)\inc\imGUI;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc;$(ProjectDir)inc\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -135,27 +135,37 @@
   <ItemGroup>
     <ClInclude Include="inc\glfw\glfw3.h" />
     <ClInclude Include="inc\glfw\glfw3native.h" />
-    <ClInclude Include="inc\imGUI\imconfig.h" />
-    <ClInclude Include="inc\imGUI\imgui.h" />
-    <ClInclude Include="inc\imGUI\imgui_impl_glfw.h" />
-    <ClInclude Include="inc\imGUI\imgui_impl_opengl3.h" />
-    <ClInclude Include="inc\imGUI\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="inc\imGUI\imgui_internal.h" />
-    <ClInclude Include="inc\imGUI\imstb_rectpack.h" />
-    <ClInclude Include="inc\imGUI\imstb_textedit.h" />
-    <ClInclude Include="inc\imGUI\imstb_truetype.h" />
+    <ClInclude Include="inc\imgui\imconfig.h" />
+    <ClInclude Include="inc\imgui\imgui.h" />
+    <ClInclude Include="inc\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="inc\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="inc\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="inc\imgui\imgui_internal.h" />
+    <ClInclude Include="inc\imgui\imstb_rectpack.h" />
+    <ClInclude Include="inc\imgui\imstb_textedit.h" />
+    <ClInclude Include="inc\imgui\imstb_truetype.h" />
+    <ClInclude Include="inc\stb\stb_image.h" />
     <ClInclude Include="src\Application\Application.h" />
+    <ClInclude Include="src\Application\Image.h" />
+    <ClInclude Include="src\Application\Logger.h" />
+    <ClInclude Include="src\Layer\ControlLayer.h" />
     <ClInclude Include="src\Layer\Layer.h" />
+    <ClInclude Include="src\Layer\LogLayer.h" />
+    <ClInclude Include="src\Layer\ViewportLayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="inc\imGUI\imgui.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_demo.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_draw.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_impl_glfw.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_tables.cpp" />
-    <ClCompile Include="inc\imGUI\imgui_widgets.cpp" />
+    <ClCompile Include="inc\imgui\imgui.cpp" />
+    <ClCompile Include="inc\imgui\imgui_demo.cpp" />
+    <ClCompile Include="inc\imgui\imgui_draw.cpp" />
+    <ClCompile Include="inc\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="inc\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="inc\imgui\imgui_tables.cpp" />
+    <ClCompile Include="inc\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="inc\stb\stb_image.cpp" />
     <ClCompile Include="src\Application\Application.cpp" />
+    <ClCompile Include="src\Application\Image.cpp" />
+    <ClCompile Include="src\Application\Logger.cpp" />
+    <ClCompile Include="src\Layer\LogLayer.cpp" />
     <ClCompile Include="src\TestGui.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

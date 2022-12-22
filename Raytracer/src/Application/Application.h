@@ -2,6 +2,7 @@
 
 // The prototype/interface header for this implementation
 #include "..\Layer\Layer.h"
+#include "..\Layer\LogLayer.h"
 
 // Headers from other non-standard, non-system libraries
 #include "imgui.h"
@@ -15,6 +16,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <iostream>
 
 struct ApplicationSpecification
 {
