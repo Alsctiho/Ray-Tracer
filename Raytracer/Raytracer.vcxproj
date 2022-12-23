@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)inc;$(ProjectDir)inc\imgui;$(ProjectDir)src\math;$(ProjectDir)src\Application;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc;$(ProjectDir)inc\imgui;$(ProjectDir)inc\math;$(ProjectDir)src\Application;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -146,13 +146,14 @@
     <ClInclude Include="inc\imgui\imstb_truetype.h" />
     <ClInclude Include="inc\stb\stb_image.h" />
     <ClInclude Include="src\Application\Application.h" />
-    <ClInclude Include="src\Application\Image.h" />
+    <ClInclude Include="src\Imageio\Image.h" />
     <ClInclude Include="src\Application\Logger.h" />
     <ClInclude Include="src\Layer\ControlLayer.h" />
     <ClInclude Include="src\Layer\Layer.h" />
     <ClInclude Include="src\Layer\LogLayer.h" />
     <ClInclude Include="src\Layer\ViewportLayer.h" />
-    <ClInclude Include="src\math\vecmath.h" />
+    <ClInclude Include="inc\math\vecmath.h" />
+    <ClInclude Include="src\Scene\scene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inc\imgui\imgui.cpp" />
@@ -164,10 +165,11 @@
     <ClCompile Include="inc\imgui\imgui_widgets.cpp" />
     <ClCompile Include="inc\stb\stb_image.cpp" />
     <ClCompile Include="src\Application\Application.cpp" />
-    <ClCompile Include="src\Application\Image.cpp" />
+    <ClCompile Include="src\Imageio\Image.cpp" />
     <ClCompile Include="src\Application\Logger.cpp" />
     <ClCompile Include="src\Layer\LogLayer.cpp" />
-    <ClCompile Include="src\math\vecmath.cpp" />
+    <ClCompile Include="inc\math\vecmath.cpp" />
+    <ClCompile Include="src\Scene\scene.cpp" />
     <ClCompile Include="src\TestGui.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

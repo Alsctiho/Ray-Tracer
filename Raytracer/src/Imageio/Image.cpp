@@ -1,6 +1,6 @@
 #include "Image.h"
 #include "..\Layer\Layer.h"
-#include "Application.h"
+#include "..\Application\Application.h"
 #include "Logger.h"
 
 #include "GLFW\glfw3.h"
@@ -23,7 +23,7 @@ Image::Image(uint32_t width, uint32_t height, ImageFormat format, const void* da
 	else
 		m_channel = 4;
 
-	m_buffer = new uint8_t[width * height * m_channel];
+	m_buffer = new uint8_t[(uint64_t)width * height * m_channel];
 	for (int i = 0; i < width * height; ++i)
 	{
 		m_buffer[i * m_channel] = 0x00; // R

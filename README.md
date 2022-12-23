@@ -7,8 +7,8 @@
  - [x] Application-Layer structure
  - [x] Image Loading and Displaying
     - [ ] image class
- - [ ] logger
-   - [ ] filter
+ - [x] logger
+   - [ ] filtersol
 
 ### Ray Tracing
 - [ ] object reading

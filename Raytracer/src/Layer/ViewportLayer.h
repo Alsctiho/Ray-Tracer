@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Layer.h"
-#include "..\Application\Image.h"
+#include "..\Imageio\Image.h"
 
 #include "stb\stb_image.h"
 #include "GLFW\glfw3.h"

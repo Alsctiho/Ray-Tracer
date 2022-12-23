@@ -63,7 +63,7 @@
     <ClInclude Include="src\Layer\ViewportLayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Application\Image.h">
+    <ClInclude Include="src\Imageio\Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Layer\LogLayer.h">
@@ -72,7 +72,10 @@
     <ClInclude Include="src\Application\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\vecmath.h">
+    <ClInclude Include="inc\math\vecmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -107,7 +110,7 @@
     <ClCompile Include="inc\stb\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Application\Image.cpp">
+    <ClCompile Include="src\Imageio\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Layer\LogLayer.cpp">
@@ -116,7 +119,10 @@
     <ClCompile Include="src\Application\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\vecmath.cpp">
+    <ClCompile Include="inc\math\vecmath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
