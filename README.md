@@ -1,5 +1,7 @@
 # Ray-Tracer
- A ray tracer based on imgui and Tracer assignment project in HKUST Comp4411
+ A ray tracer based on imgui and Tracer assignment project in HKUST Comp4411.
+  - Real time ray tracing
+  - Cel shading
 
  ## How to implement?
  ### ImGUI
@@ -12,3 +14,5 @@
 
 ### Ray Tracing
 - [ ] object reading
+   - [x] ray file design
+   - [x] read file exception

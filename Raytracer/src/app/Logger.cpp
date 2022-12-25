@@ -1,12 +1,12 @@
 #include "Logger.h"
-#include "..\Layer\LogLayer.h"
+#include "..\layer\LogLayer.h"
 
-namespace Alice
+namespace RayTracer
 {
 	/*
 	* Helper functions
 	*/
-	Log& Log::internalLog(const std::string& content)
+	Log& Log::InternalLog(const std::string& content)
 	{
 		LogLayer* logger = LogLayer::GetInstance();
 		if (logger)
@@ -32,17 +32,17 @@ namespace Alice
 
 	Log& Log::operator<<(std::string content)
 	{
-		return internalLog(content);
+		return InternalLog(content);
 	}
 
 	Log& Log::operator<<(int i)
 	{
-		return internalLog(std::to_string(i));
+		return InternalLog(std::to_string(i));
 	}
 
 	Log& Log::operator<<(double d)
 	{
-		return internalLog(std::to_string(d));
+		return InternalLog(std::to_string(d));
 	}
 
 	Log& Log::operator<<(vec3f v)
@@ -55,7 +55,7 @@ namespace Alice
 		content.append(", ");
 		content.append(std::to_string(v[2]));
 		content.append("]");
-		return internalLog(content);
+		return InternalLog(content);
 	}
 
 	Log& Log::operator<<(vec4f v)
@@ -70,7 +70,7 @@ namespace Alice
 		content.append(", ");
 		content.append(std::to_string(v[3]));
 		content.append("]");
-		return internalLog(content);
+		return InternalLog(content);
 	}
 
 	void Log::operator<<(Endl endl)

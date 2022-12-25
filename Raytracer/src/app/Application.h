@@ -1,8 +1,8 @@
 #pragma once
 
 // The prototype/interface header for this implementation
-#include "..\Layer\Layer.h"
-#include "..\Layer\LogLayer.h"
+#include "..\layer\Layer.h"
+#include "..\layer\LogLayer.h"
 
 // Headers from other non-standard, non-system libraries
 #include "imgui.h"
@@ -28,6 +28,7 @@ struct ApplicationSpecification
 class Application
 {
 public:
+	Application(ApplicationSpecification m_specification);
 	~Application();
 	void Init();
 	void Run();
@@ -41,13 +42,10 @@ public:
 
 	static Application* GetInstance()
 	{
-		if (!s_application)
-			s_application = new Application();
 		return s_application;
 	}
 
 private:
-	Application();
 	static Application* s_application;
 	std::vector<std::shared_ptr<Layer>> m_layerStack;
 

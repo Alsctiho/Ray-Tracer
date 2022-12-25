@@ -1,8 +1,10 @@
 #include "Application.h"
 #include <iostream>
 
-Application::Application()
+Application::Application(ApplicationSpecification specification)
+    : m_specification(specification)
 {
+    s_application = this;
     Init();
 }
 
@@ -89,6 +91,10 @@ void Application::Run()
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+
+        // UI Update before render
+        for (auto& layer : m_layerStack)
+            layer->OnUIUpdate();
 
         // UI Renderer
         for (auto& layer : m_layerStack)

@@ -1,9 +1,10 @@
-#include "Application/Application.h"
-#include "Layer/Layer.h"
-#include "Layer/ViewportLayer.h"
-#include "Layer/ControlLayer.h"
-#include "Layer/LogLayer.h"
-#include "Application/Logger.h"
+#include "app/Application.h"
+#include "app/Logger.h"
+#include "layer/Layer.h"
+#include "layer/ViewportLayer.h"
+#include "layer/ControlLayer.h"
+#include "layer/LogLayer.h"
+#include "fileio/Read.h"
 
 #include <iostream>
 #include <memory>
@@ -20,7 +21,7 @@ public:
 Application* Application::s_application = nullptr;
 LogLayer* LogLayer::s_logLayer = nullptr;
 
-namespace Alice
+namespace RayTracer
 {
     Log log{ Message };
     Log error{ Error };
@@ -30,10 +31,22 @@ namespace Alice
 
 int main()
 {
-    Application* app = Application::GetInstance();
+    Application* app = new Application(ApplicationSpecification{ "RayTracing", 1600, 900 });
     app->PushLayer(std::make_shared<DemoLayer>());
     app->PushLayer(std::make_shared<LogLayer>());
     app->PushLayer(std::make_shared<ControlLayer>());
     app->PushLayer(std::make_shared<ViewportLayer>());
-    app->Run();
-}
+
+    try
+    {
+        std::shared_ptr<Scene> scene = SceneReader::ReadScene("data/sample_scene.ray");
+    }
+    catch (const ReadFileException& rfe)
+    {
+        rfe.LogMessage();
+    }
+
+
+
+    app->Run(); 
+}                                                     

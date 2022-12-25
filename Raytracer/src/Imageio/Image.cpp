@@ -1,7 +1,7 @@
 #include "Image.h"
-#include "..\Layer\Layer.h"
-#include "..\Application\Application.h"
-#include "Logger.h"
+#include "..\layer\Layer.h"
+#include "..\app\Application.h"
+#include "..\app\Logger.h"
 
 #include "GLFW\glfw3.h"
 #include <vecmath.h>

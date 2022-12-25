@@ -1,5 +1,5 @@
 #include "LogLayer.h"
-#include "..\Application\Application.h"
+#include "..\app\Application.h"
 #include <string>
 #include <iostream>
 
@@ -13,10 +13,10 @@ void LogLayer::NewLine(LogLevel level, const std::string& content)
 		buffer.append("[Warning] ");
 		break;
 	case Error:
-		buffer.append("[Error]   ");
+		buffer.append("  [Error] ");
 		break;
 	case Message:
-		buffer.append("[Text]    ");
+		buffer.append("   [Text] ");
 		break;
 	}
 	buffer.append(content.c_str());

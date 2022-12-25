@@ -11,12 +11,9 @@ enum LogLevel
 	Error,
 };
 
-namespace Alice
+namespace RayTracer
 {
-	class Endl
-	{
-
-	};
+	class Endl {};
 
 	class Log
 	{
@@ -32,7 +29,7 @@ namespace Alice
 
 	private:
 		LogLevel m_level;
-		Log& internalLog(const std::string& content);
+		Log& InternalLog(const std::string& content);
 		void InternalNewLine();
 		bool newLine = true;
 	};

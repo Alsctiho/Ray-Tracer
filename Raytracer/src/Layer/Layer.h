@@ -11,5 +11,6 @@ public:
 
 	virtual void OnAttach() {}
 	virtual void OnDetach() {}
+	virtual void OnUIUpdate() {}
 	virtual void OnUIRender() {}
 };
