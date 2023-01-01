@@ -146,7 +146,10 @@
     <ClInclude Include="inc\imgui\imstb_truetype.h" />
     <ClInclude Include="inc\stb\stb_image.h" />
     <ClInclude Include="src\app\Application.h" />
+    <ClInclude Include="src\fileio\Dictionary.h" />
     <ClInclude Include="src\fileio\Read.h" />
+    <ClInclude Include="src\geometry\Box.h" />
+    <ClInclude Include="src\geometry\Geometry.h" />
     <ClInclude Include="src\imageio\Image.h" />
     <ClInclude Include="src\app\Logger.h" />
     <ClInclude Include="src\layer\ControlLayer.h" />
@@ -168,7 +171,10 @@
     <ClCompile Include="inc\imgui\imgui_widgets.cpp" />
     <ClCompile Include="inc\stb\stb_image.cpp" />
     <ClCompile Include="src\app\Application.cpp" />
+    <ClCompile Include="src\fileio\Dictionary.cpp" />
     <ClCompile Include="src\fileio\Read.cpp" />
+    <ClCompile Include="src\geometry\Box.cpp" />
+    <ClCompile Include="src\geometry\Geometry.cpp" />
     <ClCompile Include="src\imageio\Image.cpp" />
     <ClCompile Include="src\app\Logger.cpp" />
     <ClCompile Include="src\layer\LogLayer.cpp" />

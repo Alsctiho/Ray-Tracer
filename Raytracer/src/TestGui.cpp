@@ -39,7 +39,8 @@ int main()
 
     try
     {
-        std::shared_ptr<Scene> scene = SceneReader::ReadScene("data/sample_scene.ray");
+        SceneReader reader;
+        std::shared_ptr<Scene> scene = reader.ReadScene("data/sample_scene.ray");
     }
     catch (const ReadFileException& rfe)
     {

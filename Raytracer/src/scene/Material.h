@@ -3,8 +3,7 @@
 
 class Material
 {
-
-
+public:
     /*
     *   k* is the efficiency of the * material,
     *   to get the intensity of this surface point,

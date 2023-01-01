@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Dictionary.h"
+
 #include "../app/Logger.h"
 #include "../scene/Scene.h"
 
@@ -21,22 +23,18 @@ private:
 	std::string m_message;
 };
 
-class Statement
-{
-public:
-	Statement(std::string statement) {};
-	
-	std::string name;
-	std::string vector;
-};
-
 class SceneReader
 {
 public:
-	static std::shared_ptr<Scene> ReadScene(const std::string& filename);
-	static std::shared_ptr<Scene> ReadScene(std::istream& file);
+	SceneReader() {}
+
+	std::shared_ptr<Scene> ReadScene(const std::string& filename);
+	std::shared_ptr<Scene> ReadScene(std::istream& file);
+	void ParseCamera(std::vector<std::string>::iterator& iter, std::vector<std::string>& lines, Camera* scene);
+	void ParseGeometry(std::vector<std::string>::iterator& iter, std::vector<std::string>& lines, Geometry* geometry);
 
 private:
-	static void ParseCamera(std::istream& file, Scene* scene);
-};
+	Dictionary dict;
 
+	vec3f GetVectorField(std::string vector);
+};

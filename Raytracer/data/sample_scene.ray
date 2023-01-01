@@ -21,3 +21,7 @@ Box = box {
 
 // world space4
 box.transform(0, 0, -2).scale(15, 15, 1)
+
+camera
+	.transform(0, 0, -2)
+	.rotate()
