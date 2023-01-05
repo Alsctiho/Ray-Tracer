@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\scene\Camera.h"
+#include "..\Component\Camera.h"
 
 #include <string>
 #include <vector>

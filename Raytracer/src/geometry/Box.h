@@ -2,7 +2,7 @@
 
 #include "Geometry.h"
 
-class Box : public SceneGeometry
+class Box : public Geometry
 {
 
 };

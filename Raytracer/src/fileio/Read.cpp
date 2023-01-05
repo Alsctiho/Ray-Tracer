@@ -1,6 +1,6 @@
 #include "Read.h"
 
-#include "..\scene\Camera.h"
+#include "..\Component\Camera.h"
 #include "..\geometry\Box.h"
 
 #include <regex>
@@ -215,5 +215,38 @@ void SceneReader::ParseGeometry(
 	std::vector<std::string>& lines, 
 	Geometry* geometry)
 {
+	iter++; // Skip the defination.
+	size_t closeBarcketMarker;
+	while (true)
+	{
+		closeBarcketMarker = iter->find(close_bracket_delimiter);
+		if (closeBarcketMarker != std::string::npos)
+		{
+			iter++; // Skip the close bracket.
+			break;
+		}
 
+		size_t assignmentMarker = iter->find(assignment_delimiter);
+		std::string fieldName = iter->substr(0, assignmentMarker);
+		std::string fieldVector = iter->substr(assignmentMarker + 1);
+
+		if (fieldName == "position")
+		{
+			vec3f position = GetVectorField(fieldVector);
+		}
+		else if (fieldName == "rotation")
+		{
+			vec3f rotation = GetVectorField(fieldVector);
+		}
+		else if (fieldName == "scale")
+		{
+			vec3f scale = GetVectorField(fieldVector);
+		}
+		else
+		{
+			throw ReadFileException("No a field for geometry in line: " + *iter);
+		}
+
+		iter++;
+	}
 }

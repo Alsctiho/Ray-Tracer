@@ -146,6 +146,11 @@
     <ClInclude Include="inc\imgui\imstb_truetype.h" />
     <ClInclude Include="inc\stb\stb_image.h" />
     <ClInclude Include="src\app\Application.h" />
+    <ClInclude Include="src\component\Camera.h" />
+    <ClInclude Include="src\component\Component.h" />
+    <ClInclude Include="src\component\Material.h" />
+    <ClInclude Include="src\component\Transform.h" />
+    <ClInclude Include="src\constant.h" />
     <ClInclude Include="src\fileio\Dictionary.h" />
     <ClInclude Include="src\fileio\Read.h" />
     <ClInclude Include="src\geometry\Box.h" />
@@ -157,8 +162,7 @@
     <ClInclude Include="src\layer\LogLayer.h" />
     <ClInclude Include="src\layer\ViewportLayer.h" />
     <ClInclude Include="inc\math\vecmath.h" />
-    <ClInclude Include="src\scene\Camera.h" />
-    <ClInclude Include="src\scene\Material.h" />
+    <ClInclude Include="src\scene\BoundingBox.h" />
     <ClInclude Include="src\scene\Scene.h" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +175,10 @@
     <ClCompile Include="inc\imgui\imgui_widgets.cpp" />
     <ClCompile Include="inc\stb\stb_image.cpp" />
     <ClCompile Include="src\app\Application.cpp" />
+    <ClCompile Include="src\component\Camera.cpp" />
+    <ClCompile Include="src\component\Component.cpp" />
+    <ClCompile Include="src\component\Material.cpp" />
+    <ClCompile Include="src\component\Transform.cpp" />
     <ClCompile Include="src\fileio\Dictionary.cpp" />
     <ClCompile Include="src\fileio\Read.cpp" />
     <ClCompile Include="src\geometry\Box.cpp" />
@@ -179,8 +187,7 @@
     <ClCompile Include="src\app\Logger.cpp" />
     <ClCompile Include="src\layer\LogLayer.cpp" />
     <ClCompile Include="inc\math\vecmath.cpp" />
-    <ClCompile Include="src\scene\Camera.cpp" />
-    <ClCompile Include="src\scene\Material.cpp" />
+    <ClCompile Include="src\scene\BoundingBox.cpp" />
     <ClCompile Include="src\scene\Scene.cpp" />
     <ClCompile Include="src\TestGui.cpp" />
   </ItemGroup>

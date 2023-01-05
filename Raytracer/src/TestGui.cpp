@@ -49,5 +49,7 @@ int main()
 
 
 
-    app->Run(); 
+    app->Run();
+
+    delete app;
 }                                                     

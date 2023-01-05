@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Camera.h"
+#include "..\component\Camera.h"
 #include "..\geometry\Geometry.h"
 
 #include <map>

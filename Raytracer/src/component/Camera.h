@@ -1,8 +1,9 @@
 #pragma once
 
+#include "Component.h"
 #include <vecmath.h>
 
-class Camera
+class Camera : public Component
 {
 private:
 	vec3f position;
