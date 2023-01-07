@@ -12,10 +12,11 @@ Box = box {
 	position = 0.1, 0.2, 0.3
 	rotation = 90.0, 0.0, 0.0
 	scale=1.0,1.0,1.0
-	materials = {
+	material = {
 		ka = 1.0
 		kd = 3.0, 3.0, 3.0
 		kt = 1.0, 1.0, 1.0
+		shininess = 0.5
 	}
 }
 

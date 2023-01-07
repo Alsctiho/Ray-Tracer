@@ -1,8 +1,9 @@
 #pragma once
 
+#include "..\component\Component.h"
 #include <vecmath.h>
 
-class BoundingBox
+class BoundingBox : public Component
 {
 public:
 	vec3f max;

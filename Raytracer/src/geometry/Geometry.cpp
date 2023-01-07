@@ -4,8 +4,3 @@ Geometry::Geometry()
 {
 
 }
-
-void Geometry::AddComponent(Component* component)
-{
-
-}

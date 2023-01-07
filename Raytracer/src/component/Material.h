@@ -1,7 +1,9 @@
 #pragma once
+
+#include "Component.h"
 #include <vecmath.h>
 
-class Material
+class Material : public Component
 {
 public:
     /*
@@ -16,6 +18,8 @@ public:
     vec3f kr;                    // reflective
     vec3f kt;                    // transmissive
 
-    double shininess;
-    double index;               // index of refraction
+    double shininess = 0.0;
+    double index = 1.0;               // index of refraction
+
+    Material();
 };

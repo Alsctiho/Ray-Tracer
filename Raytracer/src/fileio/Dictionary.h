@@ -1,6 +1,7 @@
 #pragma once
 
 #include "..\Component\Camera.h"
+#include "..\geometry\Geometry.h"
 
 #include <string>
 #include <vector>
@@ -28,8 +29,19 @@ class CameraObject : public DictObject
 public:
 	CameraObject(std::string name, Camera* camera) 
 		: DictObject(name), m_camera(camera) {}
+
 private:
 	Camera* m_camera;
+};
+
+class GeometryObject : public DictObject
+{
+public:
+	GeometryObject(std::string name, Geometry* geometry)
+		: DictObject(name), m_geometry(geometry) {}
+
+private:
+	Geometry* m_geometry;
 };
 
 class Dictionary

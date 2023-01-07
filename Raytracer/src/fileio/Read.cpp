@@ -1,5 +1,6 @@
 #include "Read.h"
 
+#include "..\scene\SceneObject.h"
 #include "..\Component\Camera.h"
 #include "..\geometry\Box.h"
 
@@ -15,6 +16,20 @@ std::string comment_delimiter = "//";
 std::string assignment_delimiter = "=";
 std::string open_bracket_delimiter = "{";
 std::string close_bracket_delimiter = "}";
+
+using vs = std::vector<std::string>;
+
+double SceneReader::GetScaleField(std::string scale)
+{
+	try
+	{
+		return std::stod(scale);
+	}
+	catch (const std::invalid_argument&)
+	{
+		throw ReadFileException("Invalid argument at parsing scale(" + scale + ")");
+	}
+}
 
 vec3f SceneReader::GetVectorField(std::string vector)
 {
@@ -139,10 +154,15 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 			if (objectType == "" || objectName == "")
 				throw ReadFileException("Parsing Error");
 
+			
+
 			if (objectType == "Camera")
 			{
+				std::shared_ptr<SceneObject> object = std::make_shared<SceneObject>();
 				std::shared_ptr<Camera> camera = std::make_shared<Camera>();
-				scene->SetCamera(camera);
+				object->AddComponent(camera);
+
+				scene->SetCamera(object);
 
 				std::shared_ptr<CameraObject> cameraObj = std::make_shared<CameraObject>(objectName, camera.get());
 				dict.Add(objectName, cameraObj);
@@ -152,6 +172,10 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 			{
 				std::shared_ptr<Geometry> box = std::make_shared<Box>();
 				scene->Add(box);
+
+				std::shared_ptr<GeometryObject> geometryObject = std::make_shared<GeometryObject>(objectName, box.get());
+				dict.Add(objectName, geometryObject);
+
 				ParseGeometry(lineIter, lines, box.get());
 			}
 			else
@@ -162,14 +186,13 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 	}
 
 	// Validate the scene.
+	if(scene->GetCameras().size() <= 0)
+		throw ReadFileException("Camera number not enough");
 
 	return ret;
 }
 
-void SceneReader::ParseCamera(
-	std::vector<std::string>::iterator& iter,
-	std::vector<std::string>& lines, 
-	Camera* camera)
+void SceneReader::ParseCamera(vs::iterator& iter, vs& lines, Camera* camera)
 {
 	iter++; // Skip the defination.
 	size_t closeBarcketMarker;
@@ -210,10 +233,7 @@ void SceneReader::ParseCamera(
 	}
 }
 
-void SceneReader::ParseGeometry(
-	std::vector<std::string>::iterator& iter, 
-	std::vector<std::string>& lines, 
-	Geometry* geometry)
+void SceneReader::ParseGeometry(vs::iterator& iter, vs& lines, Geometry* geometry)
 {
 	iter++; // Skip the defination.
 	size_t closeBarcketMarker;
@@ -232,15 +252,82 @@ void SceneReader::ParseGeometry(
 
 		if (fieldName == "position")
 		{
-			vec3f position = GetVectorField(fieldVector);
+			geometry->GetTransform().position = GetVectorField(fieldVector);
 		}
 		else if (fieldName == "rotation")
 		{
-			vec3f rotation = GetVectorField(fieldVector);
+			geometry->GetTransform().rotation = GetVectorField(fieldVector);
 		}
 		else if (fieldName == "scale")
 		{
-			vec3f scale = GetVectorField(fieldVector);
+			geometry->GetTransform().scale = GetVectorField(fieldVector);
+		}
+		else if (fieldName == "material")
+		{
+			iter++;
+			ParseMaterial(iter, lines, &geometry->GetMaterial());
+		}
+		else
+		{
+			throw ReadFileException("No a field for geometry in line: " + *iter);
+		}
+
+		iter++;
+	}
+}
+
+void SceneReader::ParseMaterial(vs::iterator& iter, vs& lines, Material* material)
+{
+	iter++; // Skip the defination.
+	size_t closeBarcketMarker;
+	while (true)
+	{
+		// TODO: might skill whole string if two "}" stacks in the same line, buggy.
+		closeBarcketMarker = iter->find(close_bracket_delimiter);
+		if (closeBarcketMarker != std::string::npos)
+		{
+			iter++; // Skip the close bracket.
+			break;
+		}
+
+		size_t assignmentMarker = iter->find(assignment_delimiter);
+		std::string fieldName = iter->substr(0, assignmentMarker);
+		std::string fieldVector = iter->substr(assignmentMarker + 1);
+
+		if (fieldName == "ke")
+		{
+			vec3f ke = GetVectorField(fieldVector);
+			material->ke = ke;
+		}
+		else if (fieldName == "ka")
+		{
+			vec3f ka = GetVectorField(fieldVector);
+			material->ka = ka;
+		}
+		else if (fieldName == "ks")
+		{
+			vec3f ks = GetVectorField(fieldVector);
+			material->ks = ks;
+		}
+		else if (fieldName == "kd")
+		{
+			vec3f kd = GetVectorField(fieldVector);
+			material->kd = kd;
+		}
+		else if (fieldName == "kr")
+		{
+			vec3f kr = GetVectorField(fieldVector);
+			material->kr = kr;
+		}
+		else if (fieldName == "kt")
+		{
+			vec3f kt = GetVectorField(fieldVector);
+			material->kt = kt;
+		}
+		else if (fieldName == "shininess")
+		{
+			double shininess = GetScaleField(fieldVector);
+			material->shininess = shininess;
 		}
 		else
 		{

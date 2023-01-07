@@ -1,18 +1,23 @@
 #pragma once
 
+#include "..\scene\SceneObject.h"
 #include "..\component\Component.h"
-#include "..\Component\Material.h"
+#include "..\scene\BoundingBox.h"
+#include "..\component\Material.h"
 
 #include <memory>
 
-// builder pattern, component
-class Geometry
+// a boundle of components
+class Geometry : public SceneObject
 {
 private:
-	std::shared_ptr<Material> m_material;
+	Transform m_transform;
+	BoundingBox m_boundingBox;
+	Material m_material;
 
 public: 
 	Geometry();
 
-	void AddComponent(Component* component);
+	Transform& GetTransform() { return m_transform; }
+	Material& GetMaterial() { return m_material; }
 };
