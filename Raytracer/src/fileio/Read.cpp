@@ -69,23 +69,23 @@ vec3f SceneReader::GetVectorField(std::string vector)
 
 std::shared_ptr<Scene> SceneReader::ReadScene(const std::string& filename)
 {
-	std::string format = filename.substr(filename.find_last_of(dot_delimiter) + 1);
-	if(format != "ray")
-		throw ReadFileException(std::string("Not ray format ") + filename);
-
-	std::ifstream file{ filename };
-	if (!file.is_open()) 
-	{
-		throw ReadFileException(std::string("Cannot open scene file ") + filename);
-	}
-
 	try
 	{
+		std::string format = filename.substr(filename.find_last_of(dot_delimiter) + 1);
+		if (format != "ray")
+			throw ReadFileException(std::string("Not ray format ") + filename);
+
+		std::ifstream file{ filename };
+		if (!file.is_open())
+		{
+			throw ReadFileException(std::string("Cannot open scene file ") + filename);
+		}
+
 		return ReadScene(file);
 	}
-	catch (ReadFileException& rfe)
+	catch (Exception& rfe)
 	{
-		throw rfe;
+		rfe.LogMessage();
 	}
 }
 
@@ -159,14 +159,12 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 			if (objectType == "Camera")
 			{
 				std::shared_ptr<SceneObject> object = std::make_shared<SceneObject>();
-				std::shared_ptr<Camera> camera = std::make_shared<Camera>();
-				object->AddComponent(camera);
-
+				object->AddComponent<Camera>();
 				scene->SetCamera(object);
-
-				std::shared_ptr<CameraObject> cameraObj = std::make_shared<CameraObject>(objectName, camera.get());
+				Camera& camera = object->GetComponent<Camera>();
+				std::shared_ptr<CameraObject> cameraObj = std::make_shared<CameraObject>(objectName, &camera);
 				dict.Add(objectName, cameraObj);
-				ParseCamera(lineIter, lines, camera.get());
+				ParseCamera(lineIter, lines, &camera);
 			}
 			else if (objectType == "Box")
 			{

@@ -25,4 +25,7 @@ public:
 	{
 		this->up = up;
 	}
+
+public:
+	CLASS_DECLARATION(Camera)
 };

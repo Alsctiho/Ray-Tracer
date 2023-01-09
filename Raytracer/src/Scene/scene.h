@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SceneObject.h"
+#include "ComponentBundle.h"
 
 #include "..\geometry\Geometry.h"
 #include "..\component\Camera.h"
@@ -11,22 +12,22 @@
 class Scene
 {
 public:
-	const std::vector<std::shared_ptr<SceneObject>>& GetCameras() 
+	const std::vector<std::shared_ptr<ComponentBundle>>& GetCameras()
 	{
 		return m_cameras;
 	}
 
-	void SetCamera(std::shared_ptr<SceneObject> camera)
+	void SetCamera(std::shared_ptr<ComponentBundle> camera)
 	{
-		m_cameras.push_back(camera);
+		m_cameras.emplace_back(camera);
 	}
 
-	void Add(std::shared_ptr<SceneObject> obj)
+	void Add(std::shared_ptr<ComponentBundle> obj)
 	{
-		m_objects.push_back(obj);
+		m_objects.emplace_back(obj);
 	}
 
 private:
-	std::vector<std::shared_ptr<SceneObject>> m_cameras;
-	std::vector<std::shared_ptr<SceneObject>> m_objects;
+	std::vector<std::shared_ptr<ComponentBundle>> m_cameras;
+	std::vector<std::shared_ptr<ComponentBundle>> m_objects;
 };

@@ -37,17 +37,8 @@ int main()
     app->PushLayer(std::make_shared<ControlLayer>());
     app->PushLayer(std::make_shared<ViewportLayer>());
 
-    try
-    {
-        SceneReader reader;
-        std::shared_ptr<Scene> scene = reader.ReadScene("data/sample_scene.ray");
-    }
-    catch (const ReadFileException& rfe)
-    {
-        rfe.LogMessage();
-    }
-
-
+    SceneReader reader;
+    std::shared_ptr<Scene> scene = reader.ReadScene("data/sample_scene.ray");
 
     app->Run();
 

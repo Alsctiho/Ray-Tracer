@@ -1,11 +1,12 @@
 #pragma once
 
+#include "ComponentBundle.h"
 #include "..\component\Component.h"
 #include <memory>
 
 // A placeholder for components
-class SceneObject
+class SceneObject final : public ComponentBundle
 {
 public:
-	virtual void AddComponent(std::shared_ptr<Component> component);
+	
 };

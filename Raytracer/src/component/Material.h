@@ -22,4 +22,6 @@ public:
     double index = 1.0;               // index of refraction
 
     Material();
+
+    CLASS_DECLARATION(Material)
 };

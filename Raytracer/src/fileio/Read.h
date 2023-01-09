@@ -2,26 +2,13 @@
 
 #include "Dictionary.h"
 
-#include "../app/Logger.h"
+#include "../exception/Exception.h"
 #include "../scene/Scene.h"
 
 #include <string>
 #include <iostream>
 #include <memory>
 
-class ReadFileException {
-public:
-	ReadFileException(std::string message)
-		: m_message(message) {}
-
-	void LogMessage() const
-	{
-		RayTracer::error << m_message << RayTracer::endl;
-	}
-
-private:
-	std::string m_message;
-};
 
 class SceneReader
 {

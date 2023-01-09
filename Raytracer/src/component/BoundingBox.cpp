@@ -1,6 +1,8 @@
 #include "BoundingBox.h"
 #include "..\constant.h"
 
+CLASS_DEFINITION(Component, BoundingBox)
+
 void BoundingBox::operator=(const BoundingBox& target)
 {
 	min = target.min;
