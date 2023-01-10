@@ -1,4 +1,4 @@
-RayTracer 0.1
+RayTracer 0.12
 
 // Each scene must have at least one camera
 Camera = camera {

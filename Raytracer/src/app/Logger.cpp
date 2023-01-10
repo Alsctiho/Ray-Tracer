@@ -1,6 +1,8 @@
 #include "Logger.h"
 #include "..\layer\LogLayer.h"
 
+#include <sstream>
+
 namespace RayTracer
 {
 	/*
@@ -47,30 +49,30 @@ namespace RayTracer
 
 	Log& Log::operator<<(vec3f v)
 	{
-		std::string content;
-		content.append("[");
-		content.append(std::to_string(v[0]));
-		content.append(", ");
-		content.append(std::to_string(v[1]));
-		content.append(", ");
-		content.append(std::to_string(v[2]));
-		content.append("]");
-		return InternalLog(content);
+		std::stringstream content;
+		content << "[";
+		content << std::to_string(v[0]);
+		content << ", ";
+		content << std::to_string(v[1]);
+		content << ", ";
+		content << std::to_string(v[2]);
+		content << "]";
+		return InternalLog(content.str());
 	}
 
 	Log& Log::operator<<(vec4f v)
 	{
-		std::string content;
-		content.append("[");
-		content.append(std::to_string(v[0]));
-		content.append(", ");
-		content.append(std::to_string(v[1]));
-		content.append(", ");
-		content.append(std::to_string(v[2]));
-		content.append(", ");
-		content.append(std::to_string(v[3]));
-		content.append("]");
-		return InternalLog(content);
+		std::stringstream content;
+		content << "[";
+		content << std::to_string(v[0]);
+		content << ", ";
+		content << std::to_string(v[1]);
+		content << ", ";
+		content << std::to_string(v[2]);
+		content << ", ";
+		content << std::to_string(v[3]);
+		content << "]";
+		return InternalLog(content.str());
 	}
 
 	void Log::operator<<(Endl endl)

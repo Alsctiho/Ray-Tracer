@@ -1,43 +1,62 @@
 #pragma once
 
 #include "../app/Logger.h"
-#include <string>
+#include <sstream>
 
 class Exception 
 {
 public:
-	Exception(std::string&& message)
-		: m_message(message) {}
+	template<typename P1, typename ... Param>
+	Exception(const P1& p1, const Param& ... param)
+	{
+		Insert(p1, param ...);
+	}
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << m_message << RayTracer::endl;
+		RayTracer::error << m_message.str() << RayTracer::endl;
+	}
+
+private:
+	template<typename P1>
+	void Insert(const P1& p1)
+	{
+		m_message << p1;
+	}
+
+	template<typename P1, typename ... Param>
+	void Insert(const P1& p1, const Param& ... param)
+	{
+		Insert(p1);
+		Insert(param ...);
 	}
 
 protected:
-	std::string m_message;
+	std::stringstream m_message;
 };
 
 class ReadFileException : public Exception
 {
 public:
-	ReadFileException(std::string&& message)
-		: Exception(std::move(message)) {}
+	template<typename P1, typename ... Param>
+	ReadFileException(const P1& p1, const Param& ... param)
+		: Exception(p1, param ...) {}
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << "Read File: " << m_message << RayTracer::endl;
+		RayTracer::error << "Read File: " << m_message.str() << RayTracer::endl;
 	}
 };
 
 class ComponentException : public Exception
 {
 public:
-	ComponentException(std::string&& message)
-		: Exception(std::move(message)) {}
+	template<typename P1, typename ... Param>
+	ComponentException(const P1& p1, const Param& ... param)
+		: Exception(p1, param ...) {}
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << "Component: " << m_message << RayTracer::endl;
+		RayTracer::error << "Component: " << m_message.str() << RayTracer::endl;
 	}
 };

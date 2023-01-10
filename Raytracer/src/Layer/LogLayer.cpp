@@ -16,7 +16,7 @@ void LogLayer::NewLine(LogLevel level, const std::string& content)
 		buffer.append("  [Error] ");
 		break;
 	case Message:
-		buffer.append("   [Text] ");
+		buffer.append("   [Text] ");                                                                                                                                                                                                                                                                                                                                                  
 		break;
 	}
 	buffer.append(content.c_str());
