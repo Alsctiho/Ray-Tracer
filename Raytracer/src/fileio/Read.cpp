@@ -87,6 +87,8 @@ std::shared_ptr<Scene> SceneReader::ReadScene(const std::string& filename)
 	{
 		rfe.LogMessage();
 	}
+
+	return {};
 }
 
 std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)

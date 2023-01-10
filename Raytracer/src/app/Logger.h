@@ -19,12 +19,12 @@ namespace RayTracer
 	{
 	public:
 		Log(LogLevel level) : m_level(level) {}
-		Log& operator<<(std::string content);
+		Log& operator<<(const std::string& content);
 		Log& operator<<(int i);
 		Log& operator<<(double d);
-		Log& operator<<(vec3f v);
-		Log& operator<<(vec4f v);
-		void operator<<(Endl endl);
+		Log& operator<<(const vec3f& v);
+		Log& operator<<(const vec4f& v);
+		void operator<<(const Endl& endl);
 		virtual ~Log() {}
 
 	private:

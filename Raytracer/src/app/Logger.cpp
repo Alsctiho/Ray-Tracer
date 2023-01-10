@@ -6,7 +6,7 @@
 namespace RayTracer
 {
 	/*
-	* Helper functions
+	* Helper functions.
 	*/
 	Log& Log::InternalLog(const std::string& content)
 	{
@@ -31,8 +31,11 @@ namespace RayTracer
 		newLine = true;
 		LogLayer::GetInstance()->EndLine();
 	}
+	/*
+	* Helper functions end.
+	*/
 
-	Log& Log::operator<<(std::string content)
+	Log& Log::operator<<(const std::string& content)
 	{
 		return InternalLog(content);
 	}
@@ -47,7 +50,7 @@ namespace RayTracer
 		return InternalLog(std::to_string(d));
 	}
 
-	Log& Log::operator<<(vec3f v)
+	Log& Log::operator<<(const vec3f& v)
 	{
 		std::stringstream content;
 		content << "[";
@@ -60,7 +63,7 @@ namespace RayTracer
 		return InternalLog(content.str());
 	}
 
-	Log& Log::operator<<(vec4f v)
+	Log& Log::operator<<(const vec4f& v)
 	{
 		std::stringstream content;
 		content << "[";
@@ -75,7 +78,7 @@ namespace RayTracer
 		return InternalLog(content.str());
 	}
 
-	void Log::operator<<(Endl endl)
+	void Log::operator<<(const Endl& endl)
 	{
 		InternalNewLine();
 	}

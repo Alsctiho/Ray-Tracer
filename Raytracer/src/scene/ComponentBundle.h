@@ -10,8 +10,8 @@ class ComponentBundle
 {
 public:
 	/// <param name="params">Argsments for constructing the component type.</param>
-	template<class ComponentType, typename... Args>
-	void AddComponent(Args&&... params);
+	template<class ComponentType, typename... Param>
+	void AddComponent(Param&&... params);
 
 	template<class ComponentType>
 	bool HasComponent();
@@ -29,13 +29,13 @@ protected:
 
 // Note: Template must have full implementation with declaration to use.
 
-template<class ComponentType, typename... Args>
-void ComponentBundle::AddComponent(Args&&... params)
+template<class ComponentType, typename... Param>
+void ComponentBundle::AddComponent(Param&&... params)
 {
     // std::forward This is a helper function to allow perfect forwarding
     // of arguments taken as rvalue references to deduced types, 
     // preserving any potential move semantics involved.
-    components.emplace_back(std::make_unique<ComponentType>(std::forward<Args>(params)...));
+    components.emplace_back(std::make_unique<ComponentType>(std::forward<Param>(params)...));
 }
 
 template<class ComponentType>
