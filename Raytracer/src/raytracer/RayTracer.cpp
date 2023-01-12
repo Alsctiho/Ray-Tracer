@@ -1,5 +1,6 @@
 #include "RayTracer.h"
 #include "..\exception\Exception.h"
+#include "..\scene\Ray.h"
 
 #include <vecmath.h>
 
@@ -43,5 +44,13 @@ void RayTracer::TracePixel(int i, int j)
 // in an initial ray weight of (0.0,0.0,0.0) and an initial recursion depth of 0.
 vec3f RayTracer::Trace(Scene* scene, int i, int j, int buffer_width, int buffer_height)
 {
-	return vec3f((double)i / buffer_width, (double) j / buffer_height, 1.0);
+	vec3f result;
+
+	// x, y belongs to [0, 1)
+	double x = double(i) / double(buffer_width);
+	double y = double(j) / double(buffer_height);
+
+	Ray r;
+
+	return result;
 }
