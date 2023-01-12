@@ -21,9 +21,9 @@ public:
 	unsigned char* GetBuffer() { return m_buffer; }
 	uint32_t GetWidth() const { return m_width; }
 	uint32_t GetHeight() const { return m_height; }
+	uint32_t GetChannel() const { return m_channel; }
 	GLuint GetDescriptorSet() const { return m_imageTexture; }
 
-private:
 	void PushImageToOpenGl();
 
 private:

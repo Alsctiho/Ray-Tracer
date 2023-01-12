@@ -22,17 +22,11 @@ public:
 
 	Transform& GetTransform()
 	{
-		if (m_transform == nullptr)
-			m_transform = &ComponentBundle::GetComponent<Transform>();
-
 		return *m_transform; 
 	}
 
 	Material& GetMaterial()
 	{ 
-		if (m_material == nullptr)
-			m_material = &ComponentBundle::GetComponent<Material>();
-
 		return *m_material;
 	}
 };

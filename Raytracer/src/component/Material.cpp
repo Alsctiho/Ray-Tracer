@@ -2,7 +2,7 @@
 
 #include "Material.h"
 
-CLASS_DEFINITION(Component, Material)
+COMPONENT_DEFINITION(Component, Material)
 
 Material::Material() 
 {

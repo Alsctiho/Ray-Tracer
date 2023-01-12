@@ -123,6 +123,9 @@
     <ClInclude Include="src\exception\Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\raytracer\RayTracer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inc\imgui\imgui.cpp">
@@ -170,9 +173,6 @@
     <ClCompile Include="src\scene\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\fileio\Read.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\fileio\Dictionary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -207,6 +207,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\scene\ComponentBundle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fileio\Read.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raytracer\RayTracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,6 +3,7 @@
 // The prototype/interface header for this implementation
 #include "..\layer\Layer.h"
 #include "..\layer\LogLayer.h"
+#include "..\raytracer\RayTracer.h"
 
 // Headers from other non-standard, non-system libraries
 #include "imgui.h"
@@ -28,11 +29,21 @@ struct ApplicationSpecification
 class Application
 {
 public:
-	Application(ApplicationSpecification m_specification);
+	Application(ApplicationSpecification m_specification, RayTracer* tracer);
 	~Application();
 	void Init();
 	void Run();
 	void Close();
+
+	void SetTracerImage(Image* image)
+	{
+		m_tracer->SetImage(image);
+	}
+
+	void SetTracerScene(Scene* scene)
+	{
+		m_tracer->SetScene(scene);
+	}
 
 	void PushLayer(const std::shared_ptr<Layer>& layer) 
 	{ 
@@ -45,8 +56,11 @@ public:
 		return s_application;
 	}
 
+	void RayTrace();
+
 private:
 	static Application* s_application;
+	RayTracer* m_tracer = nullptr;
 	std::vector<std::shared_ptr<Layer>> m_layerStack;
 
 	// GLFW & imGUI

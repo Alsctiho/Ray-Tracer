@@ -131,7 +131,7 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 
 	for (auto lineIter = lines.begin(); lineIter != lines.end(); ++lineIter)
 	{
-		//RayTracer::log << *lineIter << RayTracer::endl;
+		//Lighting::log << *lineIter << Lighting::endl;
 
 		size_t dotMarker = lineIter->find_first_of(dot_delimiter);
 		size_t assignmentMarker = lineIter->find(assignment_delimiter);
@@ -161,12 +161,11 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 			if (objectType == "Camera")
 			{
 				std::shared_ptr<SceneObject> object = std::make_shared<SceneObject>();
-				object->AddComponent<Camera>();
+				Camera* camera = object->AddComponent<Camera>();
 				scene->SetCamera(object);
-				Camera& camera = object->GetComponent<Camera>();
-				std::shared_ptr<CameraObject> cameraObj = std::make_shared<CameraObject>(objectName, &camera);
+				std::shared_ptr<CameraObject> cameraObj = std::make_shared<CameraObject>(objectName, camera);
 				dict.Add(objectName, cameraObj);
-				ParseCamera(lineIter, lines, &camera);
+				ParseCamera(lineIter, lines, camera);
 			}
 			else if (objectType == "Box")
 			{
@@ -180,7 +179,7 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 			}
 			else
 			{
-
+				throw ReadFileException("Unexpected object type in line: ", *lineIter);
 			}
 		}
 	}
@@ -201,7 +200,6 @@ void SceneReader::ParseCamera(vs::iterator& iter, vs& lines, Camera* camera)
 		closeBarcketMarker = iter->find(close_bracket_delimiter);
 		if (closeBarcketMarker != std::string::npos)
 		{
-			iter++; // Skip the close bracket.
 			break;
 		}
 
@@ -242,7 +240,6 @@ void SceneReader::ParseGeometry(vs::iterator& iter, vs& lines, Geometry* geometr
 		closeBarcketMarker = iter->find(close_bracket_delimiter);
 		if (closeBarcketMarker != std::string::npos)
 		{
-			iter++; // Skip the close bracket.
 			break;
 		}
 
@@ -286,7 +283,6 @@ void SceneReader::ParseMaterial(vs::iterator& iter, vs& lines, Material* materia
 		closeBarcketMarker = iter->find(close_bracket_delimiter);
 		if (closeBarcketMarker != std::string::npos)
 		{
-			iter++; // Skip the close bracket.
 			break;
 		}
 

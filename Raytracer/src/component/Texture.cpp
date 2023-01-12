@@ -1,3 +1,3 @@
 #include "Texture.h"
 
-CLASS_DEFINITION(Component, Texture)
+COMPONENT_DEFINITION(Component, Texture)

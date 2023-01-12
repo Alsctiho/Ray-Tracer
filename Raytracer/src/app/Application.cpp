@@ -1,8 +1,11 @@
 #include "Application.h"
+
+#include "..\exception\Exception.h"
+
 #include <iostream>
 
-Application::Application(ApplicationSpecification specification)
-    : m_specification(specification)
+Application::Application(ApplicationSpecification specification, RayTracer* tracer)
+    : m_specification(specification), m_tracer(tracer)
 {
     s_application = this;
     Init();
@@ -138,4 +141,16 @@ void Application::Close()
 
     glfwDestroyWindow(window);
     glfwTerminate();
+}
+
+void Application::RayTrace()
+{
+    try
+    {
+        m_tracer->Render();
+    }
+    catch (Exception& e)
+    {
+        e.LogMessage();
+    }
 }

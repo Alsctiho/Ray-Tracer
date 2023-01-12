@@ -16,8 +16,10 @@ private:
 public:
     virtual void OnAttach() override
     {
-        image = std::make_shared<Image>("data\\Neko.jpg");
-        //image = std::make_shared<Image>(600, 300, ImageFormat::RGB);
+        //image = std::make_shared<Image>("data\\Neko.jpg");
+        image = std::make_shared<Image>(600, 600, ImageFormat::RGB);
+
+        Application::GetInstance()->SetTracerImage(image.get());
     }
 
     virtual void OnUIRender() override

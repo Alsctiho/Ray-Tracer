@@ -1,3 +1,3 @@
 #include "Camera.h"
 
-CLASS_DEFINITION(Component, Camera)
+COMPONENT_DEFINITION(Component, Camera)

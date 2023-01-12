@@ -5,5 +5,5 @@
 class Texture : public Component
 {
 public:
-    CLASS_DECLARATION(Texture)
+    COMPONENT_DECLARATION(Texture)
 };

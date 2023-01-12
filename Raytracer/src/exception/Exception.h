@@ -14,7 +14,7 @@ public:
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << m_message.str() << RayTracer::endl;
+		Lighting::error << m_message.str() << Lighting::endl;
 	}
 
 private:
@@ -44,7 +44,7 @@ public:
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << "Read File: " << m_message.str() << RayTracer::endl;
+		Lighting::error << "Read File: " << m_message.str() << Lighting::endl;
 	}
 };
 
@@ -57,6 +57,19 @@ public:
 
 	virtual void LogMessage() const
 	{
-		RayTracer::error << "Component: " << m_message.str() << RayTracer::endl;
+		Lighting::error << "Component: " << m_message.str() << Lighting::endl;
+	}
+};
+
+class RayTracerException : public Exception
+{
+public:
+	template<typename P1, typename ... Param>
+	RayTracerException(const P1& p1, const Param& ... param)
+		: Exception(p1, param ...) {}
+
+	virtual void LogMessage() const
+	{
+		Lighting::error << "Ray Tracing: " << m_message.str() << Lighting::endl;
 	}
 };

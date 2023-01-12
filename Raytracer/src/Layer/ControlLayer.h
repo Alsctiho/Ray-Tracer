@@ -41,6 +41,11 @@ public:
         ImGui::SameLine();
         ImGui::Text("counter = %d", counter);
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        
+        // Render Button
+        if (ImGui::Button("Render", ImVec2(50, 20)))
+            Application::GetInstance()->RayTrace();
+        
         ImGui::End();
     }
 };

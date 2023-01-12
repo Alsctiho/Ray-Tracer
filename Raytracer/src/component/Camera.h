@@ -27,5 +27,5 @@ public:
 	}
 
 public:
-	CLASS_DECLARATION(Camera)
+	COMPONENT_DECLARATION(Camera)
 };

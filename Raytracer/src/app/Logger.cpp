@@ -3,7 +3,7 @@
 
 #include <sstream>
 
-namespace RayTracer
+namespace Lighting
 {
 	/*
 	* Helper functions.

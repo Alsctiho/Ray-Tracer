@@ -1,3 +1,3 @@
 #include "Transform.h"
 
-CLASS_DEFINITION(Component, Transform)
+COMPONENT_DEFINITION(Component, Transform)

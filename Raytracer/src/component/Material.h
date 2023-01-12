@@ -23,5 +23,5 @@ public:
 
     Material();
 
-    CLASS_DECLARATION(Material)
+    COMPONENT_DECLARATION(Material)
 };

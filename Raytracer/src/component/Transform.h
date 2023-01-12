@@ -14,5 +14,5 @@ public:
 	mat4f inverse;
 
 public:
-	CLASS_DECLARATION(Transform)
+	COMPONENT_DECLARATION(Transform)
 };

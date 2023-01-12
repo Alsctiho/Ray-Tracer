@@ -11,7 +11,7 @@ enum LogLevel
 	Error,
 };
 
-namespace RayTracer
+namespace Lighting
 {
 	class Endl {};
 

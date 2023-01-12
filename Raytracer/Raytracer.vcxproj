@@ -166,6 +166,7 @@
     <ClInclude Include="src\layer\LogLayer.h" />
     <ClInclude Include="src\layer\ViewportLayer.h" />
     <ClInclude Include="inc\math\vecmath.h" />
+    <ClInclude Include="src\raytracer\RayTracer.h" />
     <ClInclude Include="src\scene\ComponentBundle.h" />
     <ClInclude Include="src\scene\Scene.h" />
     <ClInclude Include="src\scene\SceneObject.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="src\app\Logger.cpp" />
     <ClCompile Include="src\layer\LogLayer.cpp" />
     <ClCompile Include="inc\math\vecmath.cpp" />
+    <ClCompile Include="src\raytracer\RayTracer.cpp" />
     <ClCompile Include="src\scene\ComponentBundle.cpp" />
     <ClCompile Include="src\scene\Scene.cpp" />
     <ClCompile Include="src\scene\SceneObject.cpp" />

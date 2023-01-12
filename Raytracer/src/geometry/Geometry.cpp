@@ -2,7 +2,7 @@
 
 Geometry::Geometry()
 {
-	ComponentBundle::AddComponent<Transform>();
-	//AddComponent<BoundingBox>();
-	//AddComponent<Material>();
+	m_transform = ComponentBundle::AddComponent<Transform>();
+	m_boundingBox = ComponentBundle::AddComponent<BoundingBox>();
+	m_material = ComponentBundle::AddComponent<Material>();
 }
