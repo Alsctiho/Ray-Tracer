@@ -52,5 +52,5 @@ vec3f RayTracer::Trace(Scene* scene, int i, int j, int buffer_width, int buffer_
 
 	Ray r;
 
-	return vec3f(x, y, x / y);
+	return result;
 }
