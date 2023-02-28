@@ -4,5 +4,10 @@
 
 class Box : public Geometry
 {
+public:
+	Box()
+		: Geometry()
+	{
 
+	}
 };

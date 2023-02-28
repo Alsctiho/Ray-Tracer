@@ -22,7 +22,7 @@ public:
 Application* Application::s_application = nullptr;
 LogLayer* LogLayer::s_logLayer = nullptr;
 
-namespace Lighting
+namespace Skadi
 {
     Log log{ Message };
     Log error{ Error };
@@ -34,7 +34,7 @@ int main()
 {
     RayTracer* tracer = new RayTracer();
     Application* app = new Application(ApplicationSpecification{ "RayTracing", 1600, 900 }, tracer);
-    app->PushLayer(std::make_shared<DemoLayer>());
+    //app->PushLayer(std::make_shared<DemoLayer>());
     app->PushLayer(std::make_shared<LogLayer>());
     app->PushLayer(std::make_shared<ControlLayer>());
     app->PushLayer(std::make_shared<ViewportLayer>());

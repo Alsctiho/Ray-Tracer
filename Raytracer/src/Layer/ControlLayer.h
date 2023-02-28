@@ -1,5 +1,6 @@
 #pragma once
 #include "Layer.h"
+#include "../app/Logger.h"
 
 class ControlLayer : public Layer
 {
@@ -44,7 +45,10 @@ public:
         
         // Render Button
         if (ImGui::Button("Render", ImVec2(50, 20)))
+        {
+            Skadi::log << "press render button" << Skadi::endl;
             Application::GetInstance()->RayTrace();
+        }
         
         ImGui::End();
     }

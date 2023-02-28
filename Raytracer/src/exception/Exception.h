@@ -14,7 +14,7 @@ public:
 
 	virtual void LogMessage() const
 	{
-		Lighting::error << m_message.str() << Lighting::endl;
+		Skadi::error << m_message.str() << Skadi::endl;
 	}
 
 private:
@@ -44,7 +44,7 @@ public:
 
 	virtual void LogMessage() const
 	{
-		Lighting::error << "Read File: " << m_message.str() << Lighting::endl;
+		Skadi::error << "Read File: " << m_message.str() << Skadi::endl;
 	}
 };
 
@@ -57,7 +57,7 @@ public:
 
 	virtual void LogMessage() const
 	{
-		Lighting::error << "Component: " << m_message.str() << Lighting::endl;
+		Skadi::error << "Component: " << m_message.str() << Skadi::endl;
 	}
 };
 
@@ -70,6 +70,6 @@ public:
 
 	virtual void LogMessage() const
 	{
-		Lighting::error << "Ray Tracing: " << m_message.str() << Lighting::endl;
+		Skadi::error << "Ray Tracing: " << m_message.str() << Skadi::endl;
 	}
 };

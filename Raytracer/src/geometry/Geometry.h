@@ -6,6 +6,7 @@
 #include "..\component\Material.h"
 #include "..\scene\SceneObject.h"
 #include "..\scene\ComponentBundle.h"
+#include "..\scene\Scene.h"
 
 #include <memory>
 
@@ -13,9 +14,9 @@
 class Geometry : public ComponentBundle
 {
 private:
-	Transform* m_transform = nullptr;
-	BoundingBox* m_boundingBox = nullptr;
-	Material* m_material = nullptr;
+	std::shared_ptr<Transform> m_transform;
+	std::shared_ptr<BoundingBox> m_boundingBox;
+	std::shared_ptr<Material> m_material;
 
 public: 
 	Geometry();

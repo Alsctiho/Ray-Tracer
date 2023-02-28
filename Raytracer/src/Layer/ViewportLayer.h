@@ -27,7 +27,9 @@ public:
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
         ImGui::SetNextWindowSize(ImVec2(image->GetWidth(), image->GetHeight()));
         ImGui::Begin("Viewport", NULL, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar);
-        ImGui::Image((void*)(intptr_t)image->GetDescriptorSet(), ImVec2(image->GetWidth(), image->GetHeight()));
+        ImGui::Image((void*)(intptr_t)image->GetDescriptorSet(), 
+            ImVec2(image->GetWidth(), image->GetHeight()),
+            ImVec2(0, 1), ImVec2(1, 0));
         ImGui::End();
         ImGui::PopStyleVar();
     }

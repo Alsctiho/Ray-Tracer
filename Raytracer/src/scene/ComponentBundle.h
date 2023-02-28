@@ -36,6 +36,8 @@ ComponentType* ComponentBundle::AddComponent(Param&&... params)
     // of arguments taken as rvalue references to deduced types, 
     // preserving any potential move semantics involved.
     auto component = std::make_shared<ComponentType>(std::forward<Param>(params)...);
+    
+    // Component bundle holds the component
     components.emplace_back(component);
     return component.get();
 }

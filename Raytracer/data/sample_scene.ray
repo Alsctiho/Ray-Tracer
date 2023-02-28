@@ -2,15 +2,15 @@ RayTracer 0.1
 
 // Each scene must have at least one camera
 Camera = camera {
-	position = 15, 0, 5	// Comment Testing
-	viewdir = -1, 0, -0.3
-	updir = 0, 0, 1
+	position = 0, 0, 0	// Comment Testing
+	viewdir = 0, 0, -1.0
+	updir = 0, 1, 0
 }
 
 Box = box {
 	// local space
-	position = 0.1, 0.2, 0.3
-	rotation = 90.0, 0.0, 0.0
+	position = 0.0, 0.0, -3.0
+	rotation = 0.0, 0.0, 0.0
 	scale=1.0,1.0,1.0
 	material = {
 		ka = 1.0

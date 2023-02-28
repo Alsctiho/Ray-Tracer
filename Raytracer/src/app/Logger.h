@@ -11,7 +11,7 @@ enum LogLevel
 	Error,
 };
 
-namespace Lighting
+namespace Skadi
 {
 	class Endl {};
 

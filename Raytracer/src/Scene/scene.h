@@ -17,6 +17,11 @@ public:
 		return m_cameras;
 	}
 
+	const Camera& GetCameraSingle()
+	{
+		return m_cameras[0]->GetComponent<Camera>();
+	}
+
 	void SetCamera(std::shared_ptr<ComponentBundle> camera)
 	{
 		m_cameras.emplace_back(camera);

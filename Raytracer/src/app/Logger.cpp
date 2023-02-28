@@ -3,7 +3,7 @@
 
 #include <sstream>
 
-namespace Lighting
+namespace Skadi
 {
 	/*
 	* Helper functions.

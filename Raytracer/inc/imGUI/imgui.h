@@ -1684,7 +1684,7 @@ enum ImGuiCol_
     ImGuiCol_TableRowBg,            // Table row background (even rows)
     ImGuiCol_TableRowBgAlt,         // Table row background (odd rows)
     ImGuiCol_TextSelectedBg,
-    ImGuiCol_DragDropTarget,        // Rectangle highlighting a drop target
+    ImGuiCol_DragDropTarget,        // Rectangle highSkadi a drop target
     ImGuiCol_NavHighlight,          // Gamepad/keyboard: current highlighted item
     ImGuiCol_NavWindowingHighlight, // Highlight window when using CTRL+TAB
     ImGuiCol_NavWindowingDimBg,     // Darken/colorize entire screen behind the CTRL+TAB window list, when active

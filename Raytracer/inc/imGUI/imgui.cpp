@@ -968,7 +968,7 @@ static const float NAV_WINDOWING_LIST_APPEAR_DELAY          = 0.15f;    // Time 
 
 // Window resizing from edges (when io.ConfigWindowsResizeFromEdges = true and ImGuiBackendFlags_HasMouseCursors is set in io.BackendFlags by backend)
 static const float WINDOWS_HOVER_PADDING                    = 4.0f;     // Extend outside window for hovering/resizing (maxxed with TouchPadding) and inside windows for borders. Affect FindHoveredWindow().
-static const float WINDOWS_RESIZE_FROM_EDGES_FEEDBACK_TIMER = 0.04f;    // Reduce visual noise by only highlighting the border after a certain time.
+static const float WINDOWS_RESIZE_FROM_EDGES_FEEDBACK_TIMER = 0.04f;    // Reduce visual noise by only highSkadi the border after a certain time.
 static const float WINDOWS_MOUSE_WHEEL_SCROLL_LOCK_TIMER    = 0.70f;    // Lock scrolled window (so it doesn't pick child windows that are scrolling through) for a certain time, unless mouse moved.
 
 // Docking
@@ -16122,7 +16122,7 @@ void ImGui::DockNodeEndAmendTabBar()
 
 static bool IsDockNodeTitleBarHighlighted(ImGuiDockNode* node, ImGuiDockNode* root_node)
 {
-    // CTRL+Tab highlight (only highlighting leaf node, not whole hierarchy)
+    // CTRL+Tab highlight (only highSkadi leaf node, not whole hierarchy)
     ImGuiContext& g = *GImGui;
     if (g.NavWindowingTarget)
         return (g.NavWindowingTarget->DockNode == node);
@@ -17085,7 +17085,7 @@ void ImGui::DockNodeTreeUpdateSplitter(ImGuiDockNode* node)
                 */
             }
 
-            // Use a short delay before highlighting the splitter (and changing the mouse cursor) in order for regular mouse movement to not highlight many splitters
+            // Use a short delay before highSkadi the splitter (and changing the mouse cursor) in order for regular mouse movement to not highlight many splitters
             float cur_size_0 = child_0->Size[axis];
             float cur_size_1 = child_1->Size[axis];
             float min_size_0 = resize_limits[0] - child_0->Pos[axis];

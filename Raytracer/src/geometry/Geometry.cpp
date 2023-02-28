@@ -2,7 +2,7 @@
 
 Geometry::Geometry()
 {
-	m_transform = ComponentBundle::AddComponent<Transform>();
-	m_boundingBox = ComponentBundle::AddComponent<BoundingBox>();
-	m_material = ComponentBundle::AddComponent<Material>();
+	m_transform = std::make_shared<Transform>();
+	m_boundingBox = std::make_shared<BoundingBox>();
+	m_material = std::make_shared<Material>();
 }

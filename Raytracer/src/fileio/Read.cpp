@@ -8,6 +8,7 @@
 #include <string>
 #include <fstream>
 #include <algorithm>
+#include <memory>
 
 std::string dot_delimiter = ".";
 std::string comma_delimiter = ",";
@@ -131,7 +132,7 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 
 	for (auto lineIter = lines.begin(); lineIter != lines.end(); ++lineIter)
 	{
-		//Lighting::log << *lineIter << Lighting::endl;
+		//Skadi::log << *lineIter << Skadi::endl;
 
 		size_t dotMarker = lineIter->find_first_of(dot_delimiter);
 		size_t assignmentMarker = lineIter->find(assignment_delimiter);
@@ -155,8 +156,6 @@ std::shared_ptr<Scene> SceneReader::ReadScene(std::istream& file)
 
 			if (objectType == "" || objectName == "")
 				throw ReadFileException("Parsing Error");
-
-			
 
 			if (objectType == "Camera")
 			{

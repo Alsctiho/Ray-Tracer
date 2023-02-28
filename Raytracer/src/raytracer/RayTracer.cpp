@@ -44,13 +44,19 @@ void RayTracer::TracePixel(int i, int j)
 // in an initial ray weight of (0.0,0.0,0.0) and an initial recursion depth of 0.
 vec3f RayTracer::Trace(Scene* scene, int i, int j, int buffer_width, int buffer_height)
 {
-	vec3f result;
+	// Screen Coordinates
+	// raster space
 
 	// x, y belongs to [0, 1)
-	double x = double(i) / double(buffer_width);
-	double y = double(j) / double(buffer_height);
+	double x = (double(i) + 0.5) / double(buffer_width);
+	double y = (double(j) + 0.5) / double(buffer_height);
+
+	vec3f result = vec3f(x, y, 0.0).clamp();
 
 	Ray r;
+
+	const Camera& camera = m_scene->GetCameraSingle();
+	camera.RayThrough(r, x, y);
 
 	return result;
 }

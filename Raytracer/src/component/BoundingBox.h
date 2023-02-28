@@ -32,4 +32,4 @@ public:
 	vec3f getMid() { return (min + max) / 2; }
 
 	COMPONENT_DECLARATION(BoundingBox)
-};
+}; 
